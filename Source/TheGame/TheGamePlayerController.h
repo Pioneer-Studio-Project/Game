@@ -14,6 +14,11 @@ class THEGAME_API ATheGamePlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+public:
+	ATheGamePlayerController();
+	void SetUIInputMode();
+	void SetGameInputMode();
+
 protected:
 	virtual void SetupInputComponent() override;
 
@@ -24,7 +29,7 @@ private:
 	void OnSetting();
 
 	UPROPERTY()
-	class UGameSettingWidget* SettingWidget;
+	class UUserWidget* CurrentWidget;
 
 	FInputModeGameOnly GameInputMode;
 	FInputModeUIOnly UIInputMode;

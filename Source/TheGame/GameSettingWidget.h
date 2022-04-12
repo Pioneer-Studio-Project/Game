@@ -18,9 +18,17 @@ protected:
 	virtual void NativeConstruct() override;
 
 	UFUNCTION()
-		void OnConnectClicked();
+	void OnConnectClicked();
 
-private:
-	UPROPERTY()
-		class UButton* btnConnect;
+	UFUNCTION()
+	void OnExitClicked();
+
+	UPROPERTY(meta = (BindWidget))
+	class UEditableTextBox* txtIP;
+
+	UPROPERTY(meta = (BindWidget))
+	class UButton* btnConnect;
+
+	UPROPERTY(meta = (BindWidget))
+	class UButton* btnExit;
 };

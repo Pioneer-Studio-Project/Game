@@ -4,18 +4,14 @@
 #include "TheGamePlayerController.h"
 #include "GameSettingWidget.h"
 
-/*
 ATheGamePlayerController::ATheGamePlayerController()
 {
-	int aaaa = 0;
-	/*
 	static ConstructorHelpers::FClassFinder<UGameSettingWidget> Setting_C(TEXT("/Game/FirstPersonCPP/Blueprints/Setting.Setting_C"));
 	if (Setting_C.Succeeded())
 	{
 		SettingWidgetClass = Setting_C.Class;
 	}
-	*/
-//}
+}
 
 
 void ATheGamePlayerController::SetupInputComponent()
@@ -26,5 +22,22 @@ void ATheGamePlayerController::SetupInputComponent()
 
 void ATheGamePlayerController::OnSetting()
 {
+	CurrentWidget = CreateWidget<UGameSettingWidget>(this, SettingWidgetClass);
+	if (CurrentWidget)
+	{
+		CurrentWidget->AddToViewport(3);
+		SetUIInputMode();
+	}
+}
 
+void ATheGamePlayerController::SetUIInputMode()
+{
+	SetInputMode(UIInputMode);
+	bShowMouseCursor = true;
+}
+
+void ATheGamePlayerController::SetGameInputMode()
+{
+	SetInputMode(GameInputMode);
+	bShowMouseCursor = false;
 }

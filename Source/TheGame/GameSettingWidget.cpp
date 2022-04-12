@@ -2,20 +2,33 @@
 
 
 #include "GameSettingWidget.h"
+#include "TheGamePlayerController.h"
+#include "kismet/GameplayStatics.h" 
 #include "Components/Button.h"
+#include "Components/EditableTextBox.h"
 
 void UGameSettingWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-	btnConnect = Cast<UButton>(GetWidgetFromName(TEXT("btnConnect")));
-	if (btnConnect)
-	{
-		btnConnect->OnClicked.AddDynamic(this, &UGameSettingWidget::OnConnectClicked);
-	}
+	btnExit->OnClicked.AddDynamic(this, &UGameSettingWidget::OnExitClicked);
+	btnConnect->OnClicked.AddDynamic(this, &UGameSettingWidget::OnConnectClicked);
 }
 
 void UGameSettingWidget::OnConnectClicked()
 {
-	//IP
+	UE_LOG(LogTemp, Log, TEXT("Server IP : %s"), *txtIP->GetText().ToString());
+	UGameplayStatics::OpenLevel(GetWorld(), TEXT("WaitingBlock"), true, txtIP->GetText().ToString());
+	OnExitClicked();
 }
+
+void UGameSettingWidget::OnExitClicked()
+{
+	auto PlayerController = Cast<ATheGamePlayerController>(GetOwningPlayer());
+	if (PlayerController)
+	{
+		RemoveFromParent();
+		PlayerController->SetGameInputMode();
+	}
+}
+
