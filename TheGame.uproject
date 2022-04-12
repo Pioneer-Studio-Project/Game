@@ -1,16 +1,17 @@
 {
-   "FileVersion": 3,
-   "EngineAssociation": "4.27",
-   "Category": "",
-   "Description": "",
-   "Modules": [
-      {
-         "Name": "TheGame",
-         "Type": "Runtime",
-         "LoadingPhase": "Default",
-         "AdditionalDependencies": [
-            "UMG"
-         ]
-      }
-   ]
+	"FileVersion": 3,
+	"EngineAssociation": "{0BEF1AAD-48D9-7294-79FF-2994F5128220}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "TheGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"UMG",
+				"Engine"
+			]
+		}
+	]
 }
