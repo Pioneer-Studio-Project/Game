@@ -4,6 +4,7 @@
 /Intermediate
 /.vs
 /Build
+/Packaged
 ?Plugins
 *.sln
 *_BuiltData.uasset

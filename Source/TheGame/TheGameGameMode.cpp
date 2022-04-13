@@ -3,6 +3,7 @@
 #include "TheGameGameMode.h"
 #include "TheGameHUD.h"
 #include "TheGameCharacter.h"
+#include "TheGamePlayerController.h"
 #include "UObject/ConstructorHelpers.h"
 
 ATheGameGameMode::ATheGameGameMode()
@@ -14,4 +15,7 @@ ATheGameGameMode::ATheGameGameMode()
 
 	// use our custom HUD class
 	HUDClass = ATheGameHUD::StaticClass();
+
+	// set
+	PlayerControllerClass = ATheGamePlayerController::StaticClass();
 }
