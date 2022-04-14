@@ -18,7 +18,7 @@ void UGameSettingWidget::NativeConstruct()
 void UGameSettingWidget::OnConnectClicked()
 {
 	UE_LOG(LogTemp, Log, TEXT("Server IP : %s"), *txtIP->GetText().ToString());
-	UGameplayStatics::OpenLevel(GetWorld(), TEXT("WaitingBlock"), true, txtIP->GetText().ToString());
+	UGameplayStatics::OpenLevel(GetWorld(), FName(*txtIP->GetText().ToString()), true);
 	OnExitClicked();
 }
 
