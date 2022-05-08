@@ -6,7 +6,7 @@
 
 ATheGamePlayerController::ATheGamePlayerController()
 {
-	static ConstructorHelpers::FClassFinder<UGameSettingWidget> Setting_C(TEXT("/Game/FirstPersonCPP/Blueprints/Setting.Setting_C"));
+	static ConstructorHelpers::FClassFinder<UGameSettingWidget> Setting_C(TEXT("/Game/FirstPersonCPP/Blueprints/Setting"));
 	if (Setting_C.Succeeded())
 	{
 		SettingWidgetClass = Setting_C.Class;
