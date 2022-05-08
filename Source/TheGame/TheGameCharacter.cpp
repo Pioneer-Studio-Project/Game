@@ -30,14 +30,14 @@ ATheGameCharacter::ATheGameCharacter()
 	Mesh3P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh3P"));
 	Mesh3P->SetOwnerNoSee(true);
 	Mesh3P->SetupAttachment(GetCapsuleComponent());
-	Mesh3P->SetRelativeLocation(FVector(-39.56f, 0.0f, -98.0f));
+	Mesh3P->SetRelativeLocation(FVector(0.0f, 0.0f, -98.0f));
 	Mesh3P->SetRelativeRotation(FRotator(0.0f, 0.0f, -90.0f));
 	Mesh3P->SetRelativeScale3D(FVector(0.94f, 0.94f, 0.94f));
 
 	// Create a CameraComponent	
 	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
 	FirstPersonCameraComponent->SetupAttachment(GetCapsuleComponent());
-	FirstPersonCameraComponent->SetRelativeLocation(FVector(-39.56f, 0.0f, 64.f)); // Position the camera
+	FirstPersonCameraComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 64.f)); // Position the camera
 	FirstPersonCameraComponent->bUsePawnControlRotation = true;
 
 	// Create a mesh component that will be used when being viewed from a '1st person' view (when controlling this pawn)
@@ -51,7 +51,7 @@ ATheGameCharacter::ATheGameCharacter()
 
 	// Create a gun mesh component
 	FP_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FP_Gun"));
-	FP_Gun->SetOnlyOwnerSee(false);			// otherwise won't be visible in the multiplayer
+	FP_Gun->SetOnlyOwnerSee(true);			// won't be visible in the multiplayer
 	FP_Gun->bCastDynamicShadow = false;
 	FP_Gun->CastShadow = false;
 	// FP_Gun->SetupAttachment(Mesh1P, TEXT("GripPoint"));
