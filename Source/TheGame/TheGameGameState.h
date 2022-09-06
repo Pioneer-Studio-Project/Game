@@ -1,0 +1,22 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/GameStateBase.h"
+#include "TheGameGameState.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class THEGAME_API ATheGameGameState : public AGameStateBase
+{
+	GENERATED_BODY()
+	
+public:
+
+	ATheGameGameState();
+	
+	
+};

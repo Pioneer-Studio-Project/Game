@@ -21,14 +21,24 @@ public:
 
 protected:
 	virtual void SetupInputComponent() override;
+	virtual void BeginPlay();
+	APawn* MyPawn;
+	ACharacter* MyCharacter;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
 	TSubclassOf<class UGameSettingWidget> SettingWidgetClass;
 
 private:
 	void OnSetting();
+	void Jump();
+	void StopJumping();
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+	void Turn(float Value);
+	void LookUp(float Value);
+	void Special();
 
-	UPROPERTY()
+	
 	class UUserWidget* CurrentWidget;
 
 	FInputModeGameOnly GameInputMode;

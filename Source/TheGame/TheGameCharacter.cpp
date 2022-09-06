@@ -122,8 +122,8 @@ void ATheGameCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 	check(PlayerInputComponent);
 
 	// Bind jump events
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	//PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	//PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ATheGameCharacter::OnFire);
@@ -134,15 +134,15 @@ void ATheGameCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ATheGameCharacter::OnResetVR);
 
 	// Bind movement events
-	PlayerInputComponent->BindAxis("MoveForward", this, &ATheGameCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &ATheGameCharacter::MoveRight);
+	//PlayerInputComponent->BindAxis("MoveForward", this, &ATheGameCharacter::MoveForward);
+	//PlayerInputComponent->BindAxis("MoveRight", this, &ATheGameCharacter::MoveRight);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	//PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("TurnRate", this, &ATheGameCharacter::TurnAtRate);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	//PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ATheGameCharacter::LookUpAtRate);
 }
 
@@ -262,6 +262,7 @@ void ATheGameCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const FVec
 //	}
 //}
 
+/*
 void ATheGameCharacter::MoveForward(float Value)
 {
 	if (Value != 0.0f)
@@ -279,7 +280,7 @@ void ATheGameCharacter::MoveRight(float Value)
 		AddMovementInput(GetActorRightVector(), Value);
 	}
 }
-
+*/
 void ATheGameCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
