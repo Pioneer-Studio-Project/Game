@@ -16,9 +16,10 @@ class THEGAME_API ASection_2_2 : public AGameSection
 
 public:
 	ASection_2_2();
-	virtual int GetSize() override;
-	virtual TArray<TArray<int>> GetPointArray() override;
+	virtual TileStruct* GetTileInfo() override;
 
-	static const int Size = 4;
-	inline static const TArray<TArray<int>> PointArray = { {1, 1}, {1, 1} };
+	inline static TileStruct TileInfo { 1.0f, 1.0f, {
+		{1, 1},
+		{1, 1}
+	} };
 };

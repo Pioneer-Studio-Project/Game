@@ -6,6 +6,18 @@
 #include "GameFramework/Actor.h"
 #include "GameSection.generated.h"
 
+
+class THEGAME_API TileStruct
+{
+public:
+	TileStruct(float, float, TArray<TArray<int>>);
+	int GetSize();
+
+	float center_x;
+	float center_y;
+	TArray<TArray<int>> value;
+};
+
 UCLASS()
 class THEGAME_API AGameSection : public AActor
 {
@@ -14,8 +26,7 @@ class THEGAME_API AGameSection : public AActor
 public:	 
 	AGameSection();
 
-	virtual int GetSize() { return 0; };
-	virtual TArray<TArray<int>> GetPointArray() { TArray<TArray<int>> temp; return temp; };
+	virtual TileStruct* GetTileInfo() {	return nullptr;	};
 
 	UPROPERTY(VisibleAnywhere, Category = Mesh, Meta = (AllowPrivateAccess = true))
 	UStaticMeshComponent* Mesh;

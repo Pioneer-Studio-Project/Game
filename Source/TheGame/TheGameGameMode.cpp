@@ -9,7 +9,6 @@
 #include "TheGameGameState.h"
 #include "GameSection.h"
 #include "Section_5_5_mainhall.h"
-#include <random>
 
 ATheGameGameMode::ATheGameGameMode()
 	: Super()
@@ -57,8 +56,7 @@ void ATheGameGameMode::RandomMapCreate(int32 MaxSize)
 		SetTileMApCenter();
 
 		UClass* cls = ASection_5_5_mainhall::StaticClass();
-		auto CDO = cls->GetDefaultObject<AGameSection>();
-
+		TileStruct* ts = cls->GetDefaultObject<AGameSection>()->GetTileInfo();
 		
 		FVector location = FVector(0.0f, 0.0f, 0.0f);
 		FRotator rotation = FRotator(0.0f, 0.0f, 0.0f);
@@ -66,7 +64,7 @@ void ATheGameGameMode::RandomMapCreate(int32 MaxSize)
 		//그 위치에서 블록이 놓일 타일들에 블록 할당
 		//TileMapCenter[0] + 
 
-		MapSize += CDO->GetSize();
+		MapSize += ts->GetSize();
 		Sections.Add(World->SpawnActor<AGameSection>(cls, location, rotation));
 	}
 	
@@ -91,7 +89,7 @@ bool ATheGameGameMode::AddSection()
 	
 	TArray<UClass*> TheClasses;
 	UClass* cls = nullptr;
-	AGameSection* CDO = nullptr;
+	TileStruct* ts = nullptr;
 	FVector location;
 	FRotator rotation = FRotator(0.0f, 0.0f, 0.0f);
 
@@ -104,7 +102,7 @@ bool ATheGameGameMode::AddSection()
 		while (TheClasses.Num() != 0)
 		{
 			cls = TheClasses[FMath::RandRange(0, TheClasses.Num() - 1)];
-			CDO = cls->GetDefaultObject<AGameSection>();
+			ts = cls->GetDefaultObject<AGameSection>()->GetTileInfo();
 			TheClasses.Remove(cls);
 		FOR1:
 			for (;;) //가능한 인접 위치들 중 하나
@@ -132,7 +130,7 @@ bool ATheGameGameMode::AddSection()
 					}
 				}
 				//그 위치에서 블록이 놓일 타일들에 블록 할당
-				MapSize += CDO->GetSize();
+				MapSize += ts->GetSize();
 				Sections.Add(World->SpawnActor<AGameSection>(cls, location, rotation));
 				return true;
 			}

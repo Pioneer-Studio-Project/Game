@@ -8,12 +8,7 @@ ASection_2_2::ASection_2_2()
 	SetStaticMeshByPath(Mesh, TEXT("/Game/Section/Meshes/2_2.2_2"));
 }
 
-int ASection_2_2::GetSize()
+TileStruct* ASection_2_2::GetTileInfo()
 {
-	return Size;
-}
-
-TArray<TArray<int>> ASection_2_2::GetPointArray()
-{
-	return PointArray;
+	return &TileInfo;
 }

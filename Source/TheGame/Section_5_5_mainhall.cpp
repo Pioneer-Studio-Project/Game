@@ -9,12 +9,7 @@ ASection_5_5_mainhall::ASection_5_5_mainhall()
 	
 }
 
-int ASection_5_5_mainhall::GetSize()
+TileStruct* ASection_5_5_mainhall::GetTileInfo()
 {
-	return Size;
-}
-
-TArray<TArray<int>> ASection_5_5_mainhall::GetPointArray()
-{ 
-	return PointArray;
+	return &TileInfo;
 }
